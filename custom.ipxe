@@ -6,7 +6,6 @@
 :start
 menu
 
-item ipxelocalbios Chain to local IPXE BIOS
 item ipxelocal Chain to local IPXE
 
 item shell    Drop to Shell
@@ -26,9 +25,6 @@ reboot
 
 :exit
 exit
-
-:ipxelocalbios
-chain --autofree --replace http://${next-server}/ipxe/undionly.kpxe
 
 :ipxelocal
 chain http://${next-server}/ipxe/menus/boot.menu
