@@ -6,8 +6,7 @@
 :start
 menu
 
-item ipxelocalbios Chain to local IPXE BIOS
-item ipxelocaluefi Chain to local IPXE UEFI
+item ipxelocal Chain to local IPXE
 
 item shell    Drop to Shell
 item reboot   Reboot
@@ -27,8 +26,5 @@ reboot
 :exit
 exit
 
-:ipxelocalbios
-chain http://${next-server}/ipxe/undionly.kpxe
-
-:ipxelocaluefi
-chain http://${next-server}/ipxe/ipxe.efi
+:ipxelocal
+chain http://${next-server}/ipxe/menus/boot.menu
