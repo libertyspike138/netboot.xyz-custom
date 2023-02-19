@@ -28,7 +28,7 @@ reboot
 exit
 
 :ipxelocalbios
-chain --autofree --replace http://${next-server}/ipxe/menus/boot.menu
+chain --autofree --replace http://${next-server}/ipxe/undionly.kpxe
 
 :ipxelocal
 chain http://${next-server}/ipxe/menus/boot.menu
