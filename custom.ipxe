@@ -4,9 +4,31 @@
 ###
 
 :start
-echo Hello world!
-sleep 10
-goto custom_exit
+menu
 
-:custom_exit
-exit 0
+item ipxelocalbios Chain to local IPXE BIOS
+item ipxelocaluefi Chain to local IPXE UEFI
+
+item shell    Drop to Shell
+item reboot   Reboot
+item exit     Exit and continue BIOS Boot
+choose os && goto ${os}
+
+:shell
+echo Type 'exit' to return to this menu
+shell
+set menu-timeout 0
+set submenu-timeout 0
+goto start
+
+:reboot
+reboot
+
+:exit
+exit
+
+:ipxelocalbios
+chain http://${next-server}/ipxe/undionly.kpxe
+
+:ipxelocaluefi
+chain http://${next-server}/ipxe/ipxe.efi
